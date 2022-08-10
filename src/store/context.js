@@ -1,3 +1,4 @@
 import { useContext, createContext } from "react";
 
-export const Globalontext= createContext()
+const Context = createContext();
+export default Context;

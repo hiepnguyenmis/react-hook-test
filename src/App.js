@@ -1,9 +1,12 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 import { DefaultLayout } from './components/Layout';
 import { publicRouter } from "./route";
-function App() {
+import { useStore } from "./store";
 
+function App() {
+  const [state, dispatch] = useStore();
+  console.log( state);
   return (
     <>
       <Routes>
@@ -11,7 +14,7 @@ function App() {
           publicRouter.map(
             (route, index) => {
               const Page = route.component;
-             
+
               let Layout = DefaultLayout;
               if (route.layout) {
                 Layout = route.layout;
