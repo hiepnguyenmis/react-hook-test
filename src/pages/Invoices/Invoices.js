@@ -1,24 +1,9 @@
-import InvoiceItem from "~/components/InvoiceItem/InvoiceItem";
+import InvoiceTable from "~/components/InvoiceTable/InvoiceTable";
 
 function Invoices() {
     return (
         <>
-            <table>
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>item</th>
-                        <th>decription</th>
-                        <th>total</th>
-                        <th>action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <InvoiceItem/>
-                    <InvoiceItem/>
-                    <InvoiceItem/>
-                </tbody>
-            </table>
+            <InvoiceTable></InvoiceTable>
         </>
     );
 }
