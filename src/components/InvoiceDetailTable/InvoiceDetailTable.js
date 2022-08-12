@@ -1,6 +1,7 @@
+import { useEffect, useReducer } from 'react';
 import InvoiceDetailItem from "../InvoiceDetailItem/InvoiceDetailItem";
 function InvoiceDetailTable() {
-    
+
     return (
         <table>
             <thead>

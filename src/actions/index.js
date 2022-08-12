@@ -6,3 +6,10 @@ export const GetAll = payload => {
         payload
     }
 }
+
+export const GetAllDetail = payload => {
+    return{
+        type: ActionType.GET_DATA_INVOICE_ITEM_LIST,
+        payload
+    }
+}

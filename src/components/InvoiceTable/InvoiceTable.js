@@ -1,5 +1,21 @@
+import { useEffect, memo } from 'react';
 import InvoiceItem from "../InvoiceItem/InvoiceItem";
+import { useStore } from '~/store/hooks';
+import * as action from '~/actions';
+import { GetAllInvoice } from '~/service/InvoiceServices';
+
 function InvoiceTable() {
+    const [state, dispatch] = useStore();
+    useEffect(
+        () => {
+            const initData = async () => {
+                const result = await GetAllInvoice();
+                dispatch(action.GetAll(result))
+            }
+            initData();
+        }, []
+    );
+    var { data } = state;
     return (
         <>
             <table>
@@ -13,13 +29,16 @@ function InvoiceTable() {
                     </tr>
                 </thead>
                 <tbody>
-                    <InvoiceItem />
-                    <InvoiceItem />
-                    <InvoiceItem />
+                    {
+
+                        data.map((item, index) => {
+                            return < InvoiceItem data={item} key={index} />;
+                        })
+                    }
                 </tbody>
             </table>
         </>
     );
 }
 
-export default InvoiceTable;
+export default memo(InvoiceTable);

@@ -6,7 +6,6 @@ import { useStore } from "./store";
 
 function App() {
   const [state, dispatch] = useStore();
-  console.log( state);
   return (
     <>
       <Routes>
@@ -14,7 +13,6 @@ function App() {
           publicRouter.map(
             (route, index) => {
               const Page = route.component;
-
               let Layout = DefaultLayout;
               if (route.layout) {
                 Layout = route.layout;

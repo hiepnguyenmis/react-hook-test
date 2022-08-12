@@ -1,12 +1,17 @@
-function InvoiceItem() {
+import { Link } from 'react-router-dom';
+function InvoiceItem(itemData) {
+    const { data } = itemData;
     return (
         <tr>
-            <td>1</td>
-            <td>item 1</td>
-            <td>description item 1</td>
-            <td>3000</td>
+            <td>{data.id}</td>
+            <td>{data.item}</td>
+            <td> {data.description}</td>
+            <td>{'n/a'}</td>
             <td>
-                <button>Detail</button>
+                <Link to={`/invoice-detail/${data.id}`}>
+
+                    <button>Detail</button>
+                </Link>
             </td>
         </tr>
     );
