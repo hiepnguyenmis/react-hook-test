@@ -15,7 +15,7 @@ function InvoiceTable() {
             initData();
         }, []
     );
-    var { data } = state;
+    const { data } = state;
     return (
         <>
             <table>

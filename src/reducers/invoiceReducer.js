@@ -10,11 +10,13 @@ const initState = {
 function reducer(state, action) {
     switch (action.type) {
         case GET_DATA_INVOICE_LIST:
+            console.log(action.payload);
             return {
                 ...state,
                 data: [...action.payload]
             }
         case GET_DATA_INVOICE_ITEM_LIST:
+            console.log(action.payload);
             return{
                 ...state,
                 dataItem:[...action.payload]

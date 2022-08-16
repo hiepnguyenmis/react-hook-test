@@ -1,8 +1,23 @@
-import { useEffect, useReducer } from 'react';
+import { useEffect, useReducer, memo } from 'react';
+import { useParams } from 'react-router-dom'
 import InvoiceDetailItem from "../InvoiceDetailItem/InvoiceDetailItem";
+import { GetAllListItem } from '~/service/InvoiceServices';
+import { useStore } from '~/store/hooks';
+import * as  actions from '~/actions'
 function InvoiceDetailTable() {
 
+    const [state, dispatch] = useStore();
+    let { idInvoice } = useParams();
+    useEffect(() => {
+        const fetchData = async () => {
+            const result = await GetAllListItem(idInvoice);
+            dispatch(actions.GetAllDetail(result));
+        }
+        fetchData();
+    }, []);
+    const { dataItem } = state;
     return (
+
         <table>
             <thead>
                 <tr>
@@ -14,11 +29,18 @@ function InvoiceDetailTable() {
                 </tr>
             </thead>
             <tbody>
-                <InvoiceDetailItem />
-                <InvoiceDetailItem />
-                <InvoiceDetailItem />
+                {
+                    dataItem.map(
+                        (item, index) => {
+
+                            return <InvoiceDetailItem dataItem={item} key={index} />
+                        }
+                    )
+
+                }
+
             </tbody>
         </table>
     );
 }
-export default InvoiceDetailTable;
+export default memo(InvoiceDetailTable);

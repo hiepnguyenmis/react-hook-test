@@ -13,3 +13,10 @@ export const GetAllDetail = payload => {
         payload
     }
 }
+
+export const AddHeader = payload => {
+    return{
+        type:ActionType.ADD_DATA_INVOICE_HEADER,
+        payload
+    }
+}

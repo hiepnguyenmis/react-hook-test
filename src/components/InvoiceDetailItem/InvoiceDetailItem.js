@@ -1,10 +1,13 @@
-function InvoiceDetailItem() {
+import { memo } from "react";
+
+function InvoiceDetailItem(props) {
+    var { id, itemName, description, price } = props.dataItem;
     return (
         <tr>
-            <td>1</td>
-            <td>item 1</td>
-            <td>description item 1</td>
-            <td>3000</td>
+            <td>{id}</td>
+            <td>{itemName}</td>
+            <td>{description}</td>
+            <td>{price}</td>
             <td>
                 <button>Edit</button>|
                 <button>Delete</button>
@@ -12,4 +15,4 @@ function InvoiceDetailItem() {
         </tr>
     );
 }
-export default InvoiceDetailItem;
+export default memo(InvoiceDetailItem);

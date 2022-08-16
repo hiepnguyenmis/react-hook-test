@@ -9,7 +9,6 @@ function InvoiceItem(itemData) {
             <td>{'n/a'}</td>
             <td>
                 <Link to={`/invoice-detail/${data.id}`}>
-
                     <button>Detail</button>
                 </Link>
             </td>
