@@ -1,11 +1,17 @@
-function DetailHeaderInvoice(){
-    return(
+import { memo } from 'react';
+import { useStore } from "~/store";
+function DetailHeaderInvoice() {
+    const [state, dispatch] = useStore();
+
+    console.log(state.headerInvoiceAdd);
+    let { id, item, description } = state.headerInvoiceAdd;
+    return (
         <>
             <h6>Create item for header:
-                id:3,
-                name: Item 1,
-                description:Description for item 1</h6>
+                id:{id},
+                name: {item},
+                description:{description}</h6>
         </>
     );
 }
-export default DetailHeaderInvoice;
+export default memo(DetailHeaderInvoice);

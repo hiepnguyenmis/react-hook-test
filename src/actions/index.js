@@ -8,15 +8,15 @@ export const GetAll = payload => {
 }
 
 export const GetAllDetail = payload => {
-    return{
+    return {
         type: ActionType.GET_DATA_INVOICE_ITEM_LIST,
         payload
     }
 }
 
 export const AddHeader = payload => {
-    return{
-        type:ActionType.ADD_DATA_INVOICE_HEADER,
+    return {
+        type: ActionType.ADD_DATA_INVOICE_HEADER,
         payload
     }
 }

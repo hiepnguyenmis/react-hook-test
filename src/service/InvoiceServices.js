@@ -17,3 +17,13 @@ export const GetAllListItem = async (id) => {
         console.error(error);
     }
 }
+
+export const PostInvoiceItem = async (invoice) => {
+    try {
+        const re = await request.post('/invoices', invoice);
+        return re.data;
+
+    } catch (error) {
+        console.error(error);
+    }
+}

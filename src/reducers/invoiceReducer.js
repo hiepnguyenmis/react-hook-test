@@ -1,10 +1,13 @@
-import { 
+import {
     GET_DATA_INVOICE_LIST,
-    GET_DATA_INVOICE_ITEM_LIST
- } from '~/constants/ActionType';
+    GET_DATA_INVOICE_ITEM_LIST,
+    ADD_DATA_INVOICE_HEADER
+} from '~/constants/ActionType';
 const initState = {
     data: [],
-    dataItem:[]
+    dataItem: [],
+    headerInvoiceAdd: {},
+    listItemInvoice: []
 }
 
 function reducer(state, action) {
@@ -17,10 +20,19 @@ function reducer(state, action) {
             }
         case GET_DATA_INVOICE_ITEM_LIST:
             console.log(action.payload);
-            return{
+            return {
                 ...state,
-                dataItem:[...action.payload]
+                dataItem: [...action.payload]
             }
+        case ADD_DATA_INVOICE_HEADER:
+            console.log(action.payload);
+            console.log(state.headerInvoiceAdd);
+            return {
+                ...state,
+                data: [...state.data, action.payload],
+                headerInvoiceAdd: { ...action.payload }
+            }
+
         default: return state;
     }
 }

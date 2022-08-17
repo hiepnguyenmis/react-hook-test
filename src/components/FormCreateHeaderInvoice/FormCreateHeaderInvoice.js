@@ -1,11 +1,50 @@
+import { useState } from 'react';
+import { useStore } from "~/store";
+import * as actions from "~/actions";
+import {PostInvoiceItem } from "~/service/InvoiceServices";
 function FormCreateHeaderInvoice() {
+    const [state, dispatch] = useStore();
+    const [invoice, setInvoice] = useState({
+        item: '',
+        description: ''
+    });
+    const onHandleChange = (e) => {
+
+        setInvoice((prevState) => {
+            return {
+                ...prevState,
+                [e.target.name]: e.target.value
+            }
+        })
+
+    };
+    const onSubmitCreateHeader = (e) => {
+        e.preventDefault();
+        const postApi = async () => {
+            const result = await PostInvoiceItem(invoice);
+            dispatch(actions.AddHeader(result));
+        }
+        postApi();
+    }
+    let { item, description } = invoice;
     return (
         <>
             <h6>header item</h6>
-            <form>
-                <input type="text" placeholder="item name" />
-                <input type="text" placeholder="description" />
-                <button>create header</button>
+            <form onSubmit={onSubmitCreateHeader}>
+                <input
+                    type="text"
+                    placeholder="item name"
+                    name='item'
+                    value={item}
+                    onChange={onHandleChange}
+                />
+                <input
+                    type="text"
+                    placeholder="description"
+                    name="description"
+                    value={description}
+                    onChange={onHandleChange} />
+                <button type="submit">create header</button>
             </form>
         </>
     );

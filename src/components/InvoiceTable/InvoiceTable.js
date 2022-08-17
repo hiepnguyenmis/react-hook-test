@@ -3,7 +3,7 @@ import InvoiceItem from "../InvoiceItem/InvoiceItem";
 import { useStore } from '~/store/hooks';
 import * as action from '~/actions';
 import { GetAllInvoice } from '~/service/InvoiceServices';
-
+import { Link } from 'react-router-dom';
 function InvoiceTable() {
     const [state, dispatch] = useStore();
     useEffect(
@@ -18,6 +18,9 @@ function InvoiceTable() {
     const { data } = state;
     return (
         <>
+            <Link to='/invoice-action'>
+                <button>Add</button>
+            </Link>
             <table>
                 <thead>
                     <tr>
