@@ -1,11 +1,12 @@
-function TableItemInvoiceAction() {
+function TableItemInvoiceAction(props) {
+    let { id, itemName, description, price } = props.itemInvoice;
     return (
         <>
             <tr>
-                <td>1</td>
-                <td>item 1</td>
-                <td>description for item 1</td>
-                <td>3000</td>
+                <td>{id}</td>
+                <td>{itemName}</td>
+                <td>{description}</td>
+                <td>{price}</td>
                 <td>
                     <button>edit</button>
                     <button>del</button>

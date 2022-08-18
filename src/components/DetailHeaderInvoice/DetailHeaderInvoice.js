@@ -1,9 +1,9 @@
 import { memo } from 'react';
 import { useStore } from "~/store";
+
 function DetailHeaderInvoice() {
     const [state, dispatch] = useStore();
 
-    console.log(state.headerInvoiceAdd);
     let { id, item, description } = state.headerInvoiceAdd;
     return (
         <>

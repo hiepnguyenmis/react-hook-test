@@ -9,7 +9,7 @@ const publicRouter = [
     {path:'/invoices', component: Invoices},
     {path:'/invoice-action', component: InvoiceAction},
     {path:'/invoice-detail/:idInvoice', component: InvoiceDetail},
-    {path:'*', component: NotFound},
+    {path:'*', component: NotFound}
 ];
 const privateRouter = [
 

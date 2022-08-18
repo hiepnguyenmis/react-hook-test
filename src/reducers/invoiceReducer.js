@@ -1,7 +1,8 @@
 import {
     GET_DATA_INVOICE_LIST,
     GET_DATA_INVOICE_ITEM_LIST,
-    ADD_DATA_INVOICE_HEADER
+    ADD_DATA_INVOICE_HEADER,
+    ADD_DATA_INVOICE_ITEM
 } from '~/constants/ActionType';
 const initState = {
     data: [],
@@ -13,26 +14,26 @@ const initState = {
 function reducer(state, action) {
     switch (action.type) {
         case GET_DATA_INVOICE_LIST:
-            console.log(action.payload);
             return {
                 ...state,
                 data: [...action.payload]
             }
         case GET_DATA_INVOICE_ITEM_LIST:
-            console.log(action.payload);
             return {
                 ...state,
                 dataItem: [...action.payload]
             }
         case ADD_DATA_INVOICE_HEADER:
-            console.log(action.payload);
-            console.log(state.headerInvoiceAdd);
             return {
                 ...state,
-                data: [...state.data, action.payload],
-                headerInvoiceAdd: { ...action.payload }
+                data: [...state.data, action.payload]
+                
             }
-
+        case ADD_DATA_INVOICE_ITEM:
+            return {
+                ...state,
+                listItemInvoice: [...state.listItemInvoice, action.payload]
+            }
         default: return state;
     }
 }

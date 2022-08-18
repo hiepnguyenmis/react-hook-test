@@ -1,6 +1,10 @@
 import { useState } from 'react';
+import { useStore } from '~/store';
+import * as actions from '~/actions';
 function FormCreateItemInvoice() {
+    const [state, dispatch] = useStore();
     const [invoiceItem, setInvoiceItem] = useState({
+        idInvoice: "",
         itemName: "",
         description: "",
         price: ""
@@ -13,7 +17,8 @@ function FormCreateItemInvoice() {
     }
     const onSubmitForm = (e) => {
         e.preventDefault();
-
+        invoiceItem.idInvoice = state.headerInvoiceAdd.id;
+        dispatch(actions.AddItem(invoiceItem));
         console.log(invoiceItem);
     }
     let { itemName, description, price } = invoiceItem;

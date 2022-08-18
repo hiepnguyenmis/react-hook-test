@@ -1,8 +1,13 @@
 import { useState } from 'react';
 import { useStore } from "~/store";
+import { useParams, useSearchParams, useNavigate } from "react-router-dom"
 import * as actions from "~/actions";
-import {PostInvoiceItem } from "~/service/InvoiceServices";
+import { PostInvoiceItem } from "~/service/InvoiceServices";
 function FormCreateHeaderInvoice() {
+    const [searchParams] = useSearchParams();
+    const addId = searchParams.get('add');
+
+    const navigation = useNavigate();
     const [state, dispatch] = useStore();
     const [invoice, setInvoice] = useState({
         item: '',

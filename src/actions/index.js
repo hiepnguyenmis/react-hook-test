@@ -20,3 +20,16 @@ export const AddHeader = payload => {
         payload
     }
 }
+
+export const AddItem = payload => {
+    return {
+        type: ActionType.ADD_DATA_INVOICE_ITEM,
+        payload
+    }
+}
+export const GetDataHeaderIvoices=payload => {
+    return {
+        type:ActionType.GET_HEADER_THRU_PARAM_URL,
+        payload
+    }
+}

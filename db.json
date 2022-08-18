@@ -34,6 +34,16 @@
       "id": 7,
       "item": "item 7",
       "description": "description for item 7"
+    },
+    {
+      "item": "Item 6",
+      "description": "description for item 6",
+      "id": 8
+    },
+    {
+      "item": "Item 6",
+      "description": "description for item 6",
+      "id": 9
     }
   ],
   "InvoiceDetails": [

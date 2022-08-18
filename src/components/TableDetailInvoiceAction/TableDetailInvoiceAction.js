@@ -1,6 +1,8 @@
+import { useStore } from "~/store";
 import TableItemInvoiceAction from "../TableItemInvoiceAction/TableItemInvoiceAction";
-
 function TableDetailInvoiceAction() {
+    const [state, dispatch] = useStore();
+    let { listItemInvoice } = state;
     return (
         <>
             <table>
@@ -14,11 +16,17 @@ function TableDetailInvoiceAction() {
                     </tr>
                 </thead>
                 <tbody>
-                    <TableItemInvoiceAction />
-                    <TableItemInvoiceAction />
-                    <TableItemInvoiceAction />
+                    {
+                        listItemInvoice.map((item, index) => {
+                            return <TableItemInvoiceAction key={index} itemInvoice={item} />
+                        })
+                    }
+
                 </tbody>
             </table>
+            {
+                listItemInvoice.length > 0 ? <div><button>Save</button>|<button>Clear</button></div> : null
+            }
         </>
     );
 }
