@@ -28,6 +28,7 @@ function FormCreateHeaderInvoice() {
         const postApi = async () => {
             const result = await PostInvoiceItem(invoice);
             dispatch(actions.AddHeader(result));
+            navigation(`/invoice-action?add=${result.id}`, { replace: true });
         }
         postApi();
     }

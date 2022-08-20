@@ -2,7 +2,8 @@ import {
     GET_DATA_INVOICE_LIST,
     GET_DATA_INVOICE_ITEM_LIST,
     ADD_DATA_INVOICE_HEADER,
-    ADD_DATA_INVOICE_ITEM
+    ADD_DATA_INVOICE_ITEM,
+    GET_HEADER_THRU_PARAM_URL
 } from '~/constants/ActionType';
 const initState = {
     data: [],
@@ -26,13 +27,19 @@ function reducer(state, action) {
         case ADD_DATA_INVOICE_HEADER:
             return {
                 ...state,
-                data: [...state.data, action.payload]
-                
+                data: [...state.data, action.payload],
+                headerInvoiceAdd: {...action.payload}
+
             }
         case ADD_DATA_INVOICE_ITEM:
             return {
                 ...state,
                 listItemInvoice: [...state.listItemInvoice, action.payload]
+            }
+        case GET_HEADER_THRU_PARAM_URL:
+            return {
+                ...state,
+                headerInvoiceAdd: {...action.payload} 
             }
         default: return state;
     }

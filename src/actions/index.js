@@ -27,7 +27,7 @@ export const AddItem = payload => {
         payload
     }
 }
-export const GetDataHeaderIvoices=payload => {
+export const GetInvoiceById =payload => {
     return {
         type:ActionType.GET_HEADER_THRU_PARAM_URL,
         payload

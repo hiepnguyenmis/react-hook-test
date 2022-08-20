@@ -17,6 +17,14 @@ export const GetAllListItem = async (id) => {
         console.error(error);
     }
 }
+export const GetItemById=async (id) => {
+    try{
+        const re = await request.get(`/invoices?id=${id}`);
+        return re.data;
+    }catch (error) {
+        console.log(error)
+    }
+}
 
 export const PostInvoiceItem = async (invoice) => {
     try {
@@ -27,3 +35,4 @@ export const PostInvoiceItem = async (invoice) => {
         console.error(error);
     }
 }
+

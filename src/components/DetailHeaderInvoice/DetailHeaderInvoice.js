@@ -1,9 +1,22 @@
-import { memo } from 'react';
+import { memo, useEffect } from 'react';
 import { useStore } from "~/store";
-
+import { useSearchParams } from 'react-router-dom';
+import * as actions from '~/actions';
+import { GetItemById } from '~/service/InvoiceServices';
 function DetailHeaderInvoice() {
-    const [state, dispatch] = useStore();
 
+    const [searchParams] = useSearchParams();
+    const params = searchParams.get('add');
+    const [state, dispatch] = useStore();
+    useEffect(
+        () => {
+            GetApi();
+        }, [params]
+    );
+    const GetApi = async () => {
+        const result = await GetItemById(params);
+        dispatch(actions.GetInvoiceById(result[0]))
+    }
     let { id, item, description } = state.headerInvoiceAdd;
     return (
         <>
@@ -14,4 +27,6 @@ function DetailHeaderInvoice() {
         </>
     );
 }
+
+
 export default memo(DetailHeaderInvoice);
