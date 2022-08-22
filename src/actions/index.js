@@ -32,4 +32,10 @@ export const GetInvoiceById =payload => {
         type:ActionType.GET_HEADER_THRU_PARAM_URL,
         payload
     }
-}
+} 
+export const DelInvoiceInList=(id)=>{
+    return {
+        type: ActionType.DELETE_DATA_INVOICE_LIST,
+        id
+    }
+}  

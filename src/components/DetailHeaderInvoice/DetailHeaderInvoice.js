@@ -10,13 +10,13 @@ function DetailHeaderInvoice() {
     const [state, dispatch] = useStore();
     useEffect(
         () => {
+            const GetApi = async () => {
+                const result = await GetItemById(params);
+                dispatch(actions.GetInvoiceById(result[0]))
+            }
             GetApi();
         }, [params]
     );
-    const GetApi = async () => {
-        const result = await GetItemById(params);
-        dispatch(actions.GetInvoiceById(result[0]))
-    }
     let { id, item, description } = state.headerInvoiceAdd;
     return (
         <>

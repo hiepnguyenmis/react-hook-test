@@ -3,8 +3,11 @@ import {
     GET_DATA_INVOICE_ITEM_LIST,
     ADD_DATA_INVOICE_HEADER,
     ADD_DATA_INVOICE_ITEM,
-    GET_HEADER_THRU_PARAM_URL
+    GET_HEADER_THRU_PARAM_URL,
+    DELETE_DATA_INVOICE_LIST,
+    GET_DATA_EDIT
 } from '~/constants/ActionType';
+
 const initState = {
     data: [],
     dataItem: [],
@@ -28,7 +31,7 @@ function reducer(state, action) {
             return {
                 ...state,
                 data: [...state.data, action.payload],
-                headerInvoiceAdd: {...action.payload}
+                headerInvoiceAdd: { ...action.payload }
 
             }
         case ADD_DATA_INVOICE_ITEM:
@@ -39,8 +42,14 @@ function reducer(state, action) {
         case GET_HEADER_THRU_PARAM_URL:
             return {
                 ...state,
-                headerInvoiceAdd: {...action.payload} 
+                headerInvoiceAdd: { ...action.payload }
             }
+        case DELETE_DATA_INVOICE_LIST:
+            state.listItemInvoice.splice(action.id, 1);
+            return {
+                ...state
+            }
+
         default: return state;
     }
 }

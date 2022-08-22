@@ -4,6 +4,7 @@ import * as actions from '~/actions';
 function FormCreateItemInvoice() {
     const [state, dispatch] = useStore();
     const [invoiceItem, setInvoiceItem] = useState({
+        id:'',
         idInvoice: "",
         itemName: "",
         description: "",

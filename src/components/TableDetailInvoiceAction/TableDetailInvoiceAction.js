@@ -18,7 +18,7 @@ function TableDetailInvoiceAction() {
                 <tbody>
                     {
                         listItemInvoice.map((item, index) => {
-                            return <TableItemInvoiceAction key={index} itemInvoice={item} />
+                            return <TableItemInvoiceAction index={index} key={index} itemInvoice={item} />
                         })
                     }
 

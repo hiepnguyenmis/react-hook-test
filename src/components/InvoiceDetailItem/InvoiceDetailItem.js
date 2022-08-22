@@ -1,7 +1,9 @@
 import { memo } from "react";
+import { useStore } from "~/store";
+import * as action from "~/actions";
 
 function InvoiceDetailItem(props) {
-    var { id, itemName, description, price } = props.dataItem;
+    let { id, itemName, description, price } = props.dataItem;
     return (
         <tr>
             <td>{id}</td>
@@ -9,8 +11,8 @@ function InvoiceDetailItem(props) {
             <td>{description}</td>
             <td>{price}</td>
             <td>
-                <button>Edit</button>|
-                <button>Delete</button>
+                <button >Edit</button>|
+                <button >Delete</button>
             </td>
         </tr>
     );
