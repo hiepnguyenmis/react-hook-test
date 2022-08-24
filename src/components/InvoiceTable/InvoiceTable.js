@@ -18,7 +18,7 @@ function InvoiceTable() {
     const { data } = state;
     return (
         <>
-            <Link to='/invoice-action'>
+            <Link to='/'>
                 <button>Add</button>
             </Link>
             <table>

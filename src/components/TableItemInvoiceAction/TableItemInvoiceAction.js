@@ -1,11 +1,9 @@
 import { memo } from 'react';
 import { useStore } from "~/store";
 import * as actions from "~/actions";
-function TableItemInvoiceAction(props) {
+function TableItemInvoiceAction({itemInvoice,onChangeData,index}) {
     const [state, dispatch] = useStore();
-    let { id, itemName, description, price } = props.itemInvoice;
-    let { index } = props;
-    console.log(index);
+    let { id, itemName, description, price } = itemInvoice;
     const onDelete = (id) => {
         dispatch(actions.DelInvoiceInList(id));
     }
@@ -17,8 +15,8 @@ function TableItemInvoiceAction(props) {
                 <td>{description}</td>
                 <td>{price}</td>
                 <td>
-                    <button >edit</button>
-                    <button onClick={() => onDelete(index)} >del</button>
+                    <button onClick={()=>onChangeData(index)}>edit</button>
+                    <button onClick={()=>onDelete(index)} >del</button>
                 </td>
             </tr>
         </>

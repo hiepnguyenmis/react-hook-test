@@ -2,14 +2,26 @@ import DetailHeaderInvoice from '~/components/DetailHeaderInvoice/DetailHeaderIn
 import FormCreateItemInvoice from '~/components/FormCreateItemInvoice/FormCreateItemInvoice';
 import FromCreateHeaderInvoice from '~/components/FormCreateHeaderInvoice/FormCreateHeaderInvoice';
 import TableDetailInvoiceAction from '~/components/TableDetailInvoiceAction/TableDetailInvoiceAction';
-
-function InvoiceAction() {
+import {useState,useEffect} from 'react';
+function InvoiceAction({onChangeDataItem}) {
+    const [state, setState] = useState({
+        ItemInvoiceEdit:null
+    })
+    const onChangeData=(id)=>{
+        setState(
+            {
+                ItemInvoiceEdit:id
+            }
+        )
+       
+    }
+   
     return (
         <>
             <FromCreateHeaderInvoice />
             <DetailHeaderInvoice />
-            <FormCreateItemInvoice />
-            <TableDetailInvoiceAction />
+            <FormCreateItemInvoice changeId={state.ItemInvoiceEdit}/>
+            <TableDetailInvoiceAction onChangeData={onChangeData}/>
         </>
     );
 }

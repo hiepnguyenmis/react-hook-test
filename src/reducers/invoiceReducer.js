@@ -4,8 +4,7 @@ import {
     ADD_DATA_INVOICE_HEADER,
     ADD_DATA_INVOICE_ITEM,
     GET_HEADER_THRU_PARAM_URL,
-    DELETE_DATA_INVOICE_LIST,
-    GET_DATA_EDIT
+    DELETE_DATA_INVOICE_LIST
 } from '~/constants/ActionType';
 
 const initState = {
@@ -32,7 +31,6 @@ function reducer(state, action) {
                 ...state,
                 data: [...state.data, action.payload],
                 headerInvoiceAdd: { ...action.payload }
-
             }
         case ADD_DATA_INVOICE_ITEM:
             return {
@@ -49,7 +47,6 @@ function reducer(state, action) {
             return {
                 ...state
             }
-
         default: return state;
     }
 }

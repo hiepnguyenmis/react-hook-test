@@ -1,15 +1,22 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useStore } from '~/store';
 import * as actions from '~/actions';
-function FormCreateItemInvoice() {
+function FormCreateItemInvoice({ changeId }) {
     const [state, dispatch] = useStore();
     const [invoiceItem, setInvoiceItem] = useState({
-        id:'',
+        id: '',
         idInvoice: "",
         itemName: "",
         description: "",
         price: ""
     });
+    console.log(changeId); 
+    useEffect(() => {
+        console.log(changeId);
+        if (state.listItemInvoice.length > 0) {
+            setInvoiceItem(state.listItemInvoice[changeId]);
+        }
+    }, [changeId]);
     const onHandleChange = (e) => {
         setInvoiceItem((prevState) => ({
             ...prevState,
@@ -40,7 +47,7 @@ function FormCreateItemInvoice() {
                     placeholder="price" name="price"
                     value={price}
                     onChange={onHandleChange} />
-                <button type="submit">add to list</button>
+                <button type="submit">{changeId==null? "add to list" : "edit item"}</button>
             </form>
         </>
     );
